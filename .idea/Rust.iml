@@ -11,7 +11,12 @@
       <sourceFolder url="file://$MODULE_DIR$/rust_common_features/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rust_common_features/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/rust_common_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/ownership_features/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/guessing_game/target" />
+      <excludeFolder url="file://$MODULE_DIR$/ownership_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/rust_common_features/target" />
     </content>
     <orderEntry type="inheritedJdk" />
