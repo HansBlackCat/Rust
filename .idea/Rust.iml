@@ -15,9 +15,19 @@
       <sourceFolder url="file://$MODULE_DIR$/ownership_features/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ownership_features/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ownership_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/slice_type_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/slice_type_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/slice_type_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/slice_type_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/struct_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/struct_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/struct_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/struct_features/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/guessing_game/target" />
       <excludeFolder url="file://$MODULE_DIR$/ownership_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/rust_common_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/slice_type_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/struct_features/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
