@@ -1,0 +1,1 @@
+/home/hansblackcat/Documents/Git/Rust/generic_traits_lifetimes_features/target/debug/libgeneric_traits_lifetimes_features.rlib: /home/hansblackcat/Documents/Git/Rust/generic_traits_lifetimes_features/src/lib.rs

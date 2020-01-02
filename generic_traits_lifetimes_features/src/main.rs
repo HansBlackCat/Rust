@@ -1,3 +1,5 @@
+use generic_traits_lifetimes_features::{Tweet, Summary, NewArticle, notify};
+
 
 struct Point<T> {
     x: T,
@@ -74,6 +76,30 @@ fn main() {
 
     let integer = Some(5);
     let float = Some(3.6);
+
+    // << Traits >>
+    let tweet = Tweet {
+        username: String::from("KanKan"),
+        content: String::from("About Austro-Hungary"),
+        reply: false,
+        retweet: false,
+    };
+    println!("\n1 new tweet: {}", tweet.summarize());
+
+    let article = NewArticle {
+        headline: String::from("Penguins win the Stanley Cup Championship!"),
+        location: String::from("Pittsburgh, PA, USA"),
+        author: String::from("Iceburgh"),
+        content: String::from("The Pittsburgh Penguins once again are the best hockey team in the NHL."),
+    };
+
+    println!("New article available! {}", article.summarize());
+
+    println!("Print author: {}", tweet.summarize_author());
+    println!("Print author: {}", article.summarize_author());
+
+    notify(tweet);
+
 
 }
 
