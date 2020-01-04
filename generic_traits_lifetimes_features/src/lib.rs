@@ -1,4 +1,5 @@
-
+use std::fmt::Display;
+use std::fmt::Debug;
 
 pub trait Summary {
     fn summarize(&self) ->String {
@@ -10,6 +11,12 @@ pub trait Summary {
 pub fn notify(item: impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
+
+pub fn use_of_where<T, U>(t: T,u: U)
+    where T: Display + Clone,
+          U: Clone + Debug
+{}
+
 
 pub struct NewArticle {
     pub headline: String,
