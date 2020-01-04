@@ -1,0 +1,1 @@
+/home/hansblackcat/Documents/Git/Rust/validating_references_features/target/debug/libvalidating_references_features.rlib: /home/hansblackcat/Documents/Git/Rust/validating_references_features/src/lib.rs

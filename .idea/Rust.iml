@@ -39,6 +39,14 @@
       <sourceFolder url="file://$MODULE_DIR$/generic_traits_lifetimes_features/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/generic_traits_lifetimes_features/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/generic_traits_lifetimes_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_reference_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_reference_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_reference_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_reference_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_references_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_references_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_references_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/validating_references_features/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/common_collections_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/enum_and_pattern_matching_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/error_handling_features/target" />
@@ -48,6 +56,8 @@
       <excludeFolder url="file://$MODULE_DIR$/rust_common_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/slice_type_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/struct_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/validating_reference_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/validating_references_features/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
