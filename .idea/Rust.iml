@@ -47,11 +47,31 @@
       <sourceFolder url="file://$MODULE_DIR$/validating_references_features/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/validating_references_features/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/validating_references_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/automated_tests_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/automated_tests_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/automated_tests_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/automated_tests_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/adder/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/adder/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/adder/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/adder/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/io_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/io_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/io_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/io_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/func_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/func_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/func_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/func_features/benches" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/adder/target" />
+      <excludeFolder url="file://$MODULE_DIR$/automated_tests_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/common_collections_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/enum_and_pattern_matching_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/error_handling_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/func_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/generic_traits_lifetimes_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/guessing_game/target" />
+      <excludeFolder url="file://$MODULE_DIR$/io_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/ownership_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/rust_common_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/slice_type_features/target" />
