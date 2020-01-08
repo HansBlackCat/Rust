@@ -6,20 +6,27 @@ struct Config {
     filename: String,
 }
 impl Config {
-    fn new(args: &[String]) ->Config {
+    fn new(args: &[String]) ->Result<Config, &'static str> {
+        if args.len() < 3 { return Err("not enough arguments"); }
         let query = args[1].clone();
         let filename = args[2].clone();
-        Config {query, filename}
+        Ok(Config {query, filename})
     }
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let config = Config::new(&args);
+    let config = match config {
+        Err(_) => {
+            println!("It's Error time!");
+            Config {query: String::from("Error!"), filename: String::from("Error.txt")}
+        },
+        Ok(Config{query, filename}) => Config {query, filename },
+    };
     // let config = parse_config_v2(&args);
     /*
     let (query, filename) = parse_config(&args);
-
     let query = &args[1];
     let filename = &args[2];
     */

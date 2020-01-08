@@ -63,6 +63,10 @@
       <sourceFolder url="file://$MODULE_DIR$/func_features/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/func_features/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/func_features/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/io_advanced_features/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/io_advanced_features/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/io_advanced_features/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/io_advanced_features/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/adder/target" />
       <excludeFolder url="file://$MODULE_DIR$/automated_tests_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/common_collections_features/target" />
@@ -71,6 +75,7 @@
       <excludeFolder url="file://$MODULE_DIR$/func_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/generic_traits_lifetimes_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/guessing_game/target" />
+      <excludeFolder url="file://$MODULE_DIR$/io_advanced_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/io_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/ownership_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/rust_common_features/target" />
