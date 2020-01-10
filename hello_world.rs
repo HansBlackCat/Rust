@@ -1,3 +1,3 @@
-fn main() {
+5fn main() {
     println!("Hello, world!");
 }

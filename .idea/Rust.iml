@@ -71,9 +71,24 @@
       <sourceFolder url="file://$MODULE_DIR$/application/rget/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/application/rget/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/application/rget/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/tumbnails_generator/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/application/tumbnails_generator/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/application/tumbnails_generator/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/tumbnails_generator/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/command_1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/application/command_1/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/application/command_1/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/command_1/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/cargo_test/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cargo_test/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cargo_test/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/cargo_test/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/adder/target" />
+      <excludeFolder url="file://$MODULE_DIR$/application/command_1/target" />
       <excludeFolder url="file://$MODULE_DIR$/application/rget/target" />
+      <excludeFolder url="file://$MODULE_DIR$/application/tumbnails_generator/target" />
       <excludeFolder url="file://$MODULE_DIR$/automated_tests_features/target" />
+      <excludeFolder url="file://$MODULE_DIR$/cargo_test/target" />
       <excludeFolder url="file://$MODULE_DIR$/common_collections_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/enum_and_pattern_matching_features/target" />
       <excludeFolder url="file://$MODULE_DIR$/error_handling_features/target" />
