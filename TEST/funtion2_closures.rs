@@ -1,4 +1,4 @@
-#![allow(unused_variables)]
+#![allow(unused_variables, dead_code)]
 use std::mem;
 
 fn main() {
@@ -34,13 +34,22 @@ fn main() {
     // compilcated_print();
 
     let mut count = 0;
-    let inc = || {
+    let mut inc = || {
         count += 1;
         println!("`count`: {}", count);
     };
     inc();
-    //let reborrow = &mut count;
+    // let reborrow = &count;
     inc();
+
+    let count_reborrowed = &mut count;
+
+    let movable = Box::new(3);
+    let consume = || {
+        println!("`movable`: {:?}", movable);
+        mem::drop(movable);
+    };
+    consume();
 
     // ----------------------------------------------------
     // Multi ref is OK
@@ -64,5 +73,78 @@ fn main() {
     println!("\nc is: {}\n", c);
     // ----------------------------------------------------
     
+    let haystack = vec![1, 2, 3];
+    let contains = move |needle| haystack.contains(needle);
+    println!("{}", contains(&1));
+    println!("{}", contains(&4));
+    println!("{}", contains(&1));
 
+    // B.c closure use 'move' to take authority following line can't compile
+    // println!("There're {} elements in vec", haystack.len());
+
+    // ----------------------------------------------------
+    // << As Input Parameters >>
+    println!("");
+    let greeting = "hello";
+    let mut farewell = "goodbye".to_owned();
+    let diary = || {
+        // Fn
+        println!("I said {}.", greeting);
+        // FnMut
+        farewell.push_str("!!!");
+        println!("Then I screamed {}", farewell);
+        println!("Then I sleep. zzz");
+        println!("");
+        // FnOnce
+        mem::drop(farewell);
+    };
+    apply(diary);
+    let double = |x| 2*x;
+    println!("3 doubled: {}", appy_to_3(double));
+
+    // ----------------------------------------------------
+    // << Type Anonymity >>
+    let x = 7;
+    let print = || println!("{}", x);
+    apply2(print);
+
+    // ----------------------------------------------------
+    // << Input Function >>
+    let closure = ||println!("I'm a closure!");
+    call_me(closure);
+    call_me(function_call);
+    println!("");
+
+    // ----------------------------------------------------
+    // << As Output Parameters >>
+    let fn_plain = create_fn();
+    let mut fn_mut = create_fnmut();
+    let fn_once = create_fnonce();
+
+    fn_plain();
+    fn_mut();
+    fn_once();
+
+}
+
+fn apply<F>(f: F) where F: FnOnce() { f(); }
+fn appy_to_3<F>(f: F) ->i32 where F: Fn(i32) ->i32 { f(3) }
+
+// F: Generic
+fn apply2<F>(f: F) where F: FnOnce() { f(); }
+
+fn call_me<F: Fn()>(f: F) { f(); }
+fn function_call() { println!("I'm a function!") }
+
+fn create_fn() ->impl Fn() {
+    let text = "Fn".to_owned();
+    move || println!("This is a: {}", text)
+}
+fn create_fnmut() ->impl FnMut() {
+    let text = "FnMut".to_owned();
+    move || println!("This is a: {}", text)
+}
+fn create_fnonce() ->impl FnOnce() {
+    let text = "FnOnce".to_owned();
+    move || println!("This is a: {}", text)
 }
