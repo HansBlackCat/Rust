@@ -20,6 +20,6 @@ fn main() {
     generic::<char>(SGen('a'));
     // Implicitly specified
     generic(SGen('c'));
-    //
-    generic<u32>(SGen('d'));
+    // Can't
+    // generic<u32>(SGen('d'));
 }
