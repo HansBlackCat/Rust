@@ -20,8 +20,11 @@ fn main() {
         Err(why) => panic!("couln't create {}: {}", display, why.description()),
         Ok(file) => file,
     };
+
     match file.write_all(LOREAM_IPSUM.as_bytes()) {
         Err(why) => panic!("couldn't write to {}: {}", display, why.description()),
         Ok(_) => println!("Successfully wrote to {}", display),
     }
+
+    
 }
