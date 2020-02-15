@@ -89,6 +89,16 @@ fn main() {
 
     // Function
     {
+        fn make_fn() {
+            println!("Hello?");
+        }
+        fn another_function(x: i32) {
+            println!("Hello? {}", x);
+        }
+        fn adder(x: i32, y:i32) ->i32 {
+            x+y
+        }
+
         make_fn();
         another_function(4);
         // return without ;
@@ -204,15 +214,7 @@ fn main() {
         }
     }
 
-
+    
 }
 
-fn make_fn() {
-    println!("Hello?");
-}
-fn another_function(x: i32) {
-    println!("Hello? {}", x);
-}
-fn adder(x: i32, y:i32) ->i32 {
-    x+y
-}
+
