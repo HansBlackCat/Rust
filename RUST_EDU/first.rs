@@ -190,6 +190,7 @@ fn main() {
         }
         // give_ownership();
 
+        // ETC
         // Function as paramter
         {
             fn fun_test(value: i32, f: &dyn Fn(i32) -> i32) -> i32 {
@@ -206,16 +207,109 @@ fn main() {
 
     // Ownership2
     { 
+        // Reference
         {
-            fn calculate_length(s: String) ->usize {
+            fn calculate_length(s: &String) ->usize {
                 s.len()
             }
 
+            let s1 = String::from("hello");
+            let len = calculate_length(&s1);
+            println!("len is: {}", len);
+
+            println!("s1 is? {}\n", s1);
+        }
+
+        // Reference 2
+        {
+            fn calculate_length(s: &String) ->usize {
+                s.len()
+            }
+            fn calculate_length2(s: &String) ->usize {
+                s.len()+1
+            }
+
+
+
+            let s1 = String::from("Howdy");
+            let s1_clone = s1.clone();
+
+            let s2 = &s1;
+            let s3 = &s1;
+            let s3_2 = &s2;
+
+            // move action
+            // remove all referenced things
+            let s1_move = s1 + " world";
+            println!("s1_move?: {}", s1_move);
+            // println!("s1 alive?: {}", s1);
+            // println!("s2 alive?: {}", s2);
 
         }
+
+        // mut change
+        {
+            fn change(s: &mut String) {
+                s.push_str(" alloa")
+            }
+
+            // Mut Ref
+            // mutable 
+            let mut p = String::from("Star");
+            let p2 = &p;
+            let p_mut = &mut p;
+
+            // immutable borrow later used here
+            // println!("p2?: {}", p2);
+        }
+
+        // double mut
+        {
+            let mut s = String::from("ahh");
+
+            let s1 = &mut s;
+            let s2 = &mut s;
+            // second mutable borrow occurs here
+            // println!("{}- {}", s1, s2);
+        }
+
+        // ref and mut ref
+        {
+            let mut s = String::from("hello");
+
+            let s1 = &s;
+            let s2 = &s;
+            let s3 = &mut s;
+            // immutable borrow later used here
+            // println!("{}-{}-{}", s1, s2, s3);
+        }
+
+        {
+            let mut s = String::from("gello");
+            
+            let s1 = &s;
+            let s2 = &s;
+            println!("{}-{}", s1, s2);
+
+            let s3 = &mut s;
+            println!("{}", s3);
+        }
+
+        // Dangling Pointer
+        {
+            fn some_func() -> &String {
+                let s = String::from("hello");
+                &s
+            }
+            // missing lifetime specifier
+            // let ref_to_nothing = some_func();
+        }
+
     }
 
-    
+    // Slice type
+    {
+    }
 }
 
 
