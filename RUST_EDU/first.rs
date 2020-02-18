@@ -296,13 +296,14 @@ fn main() {
         }
 
         // Dangling Pointer
-        {
+        {/*
             fn some_func() -> &String {
                 let s = String::from("hello");
                 &s
             }
             // missing lifetime specifier
             // let ref_to_nothing = some_func();
+        */
         }
 
     }
