@@ -1,3 +1,5 @@
+// Attribute
+// Meaning: allow that `warning`
 #![allow(unused_mut, unused_variables, dead_code, non_snake_case, irrefutable_let_patterns)]
 
 
@@ -108,7 +110,7 @@ fn main() {
         let origin = Point(0,0,0);
     }
 
-    // Question
+    // @Question
     // Is it possible?
     {
         // Error
@@ -436,6 +438,7 @@ fn main() {
         let y = SimCal::Cal(10, 4, '-'); // 6
         let z = SimCal::Cal(3, 10, '*'); // 30
         let a = SimCal::Cal(12, 3, '/'); // 4
+        let a = SimCal::Cal(12, 3, '.'); // 4
 
         fn calculating(t: SimCal) ->i32 {
             match t {
@@ -443,7 +446,7 @@ fn main() {
                 SimCal::Cal(a, b, '-') => a-b,
                 SimCal::Cal(a, b, '*') => a*b,
                 SimCal::Cal(a, b, '/') => a/b,
-                _ => panic!("Error"),
+                _ => -1,
             }
         }
         println!("{:?}", calculating(x));
@@ -451,5 +454,4 @@ fn main() {
         println!("{:?}", calculating(z));
         println!("{:?}", calculating(a));
     }
-
 }
