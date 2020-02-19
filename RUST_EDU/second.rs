@@ -18,14 +18,13 @@ fn main() {
 
     // Death reference
     {
+        // @Question why error?
         /* Dangling Pointer
-
         fn dangle() ->&String {
             let s = String::from("hello");
             &s // return s's REFERENCE
         } // BUT original s drop here
         let t = dangle();
-
         */
     }
 
