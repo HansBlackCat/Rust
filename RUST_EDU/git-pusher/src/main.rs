@@ -1,38 +1,43 @@
-#![macro_use]
-extern crate regex;
+extern crate chrono;
 
+use std::io;
+use std::{env, fs};
+use chrono::prelude::*;
 use std::process::Command;
-use regex::Regex;
-use std::error::Error;
 
-#[derive(PartialEq, Default, Clone, Debug)]
-struct Commit {
-    hash: String,
-    message: String,
-}
+fn main() ->io::Result<()> {
+    let local: String = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
+    println!("{:?}", local);
 
-fn main() -> Result<(), Box<dyn Error>> {
-    let output = Command::new("git").arg("log").arg("--oneline").output()?;
+    let current_dir = env::current_dir()?;
+    println!("Current directory is: \n{:?}\n", current_dir);
 
-    if !output.status.success() {
-        panic!("Command executed with failing error code");
+    for entry in fs::read_dir(current_dir)? {
+        let entry_in_string = entry.unwrap().path();
+        println!("{:?}", entry_in_string);
+        let metadata = fs::metadata(entry_in_string)?;
+        println!("{:?}", metadata.is_dir());
     }
 
-    let pattern = Regex::new(r"(?x)
-                               ([0-9a-fA-F]+) # commit hash
-                               (.*)           # The commit message")?;
+    let dir_list = 
+        Command::new("sh")
+            .arg("-c")
+            .arg("ls > list.txt")
+            .output()
+            .expect("failed to execute `ls`");
+    dir_list.stdout;
 
-    String::from_utf8(output.stdout)?
-        .lines()
-        .filter_map(|line| pattern.captures(line))
-        .map(|cap| {
-                 Commit {
-                     hash: cap[1].to_string(),
-                     message: cap[2].trim().to_string(),
-                 }
-             })
-        .take(5)
-        .for_each(|x| println!("{:?}", x));
+    let output = if cfg!(target_os = "macos") {
+        Command::new("sh")
+            .arg("-c")
+            .arg("git log --oneline > hello.txt")
+            // pub fn output(&mut self) -> Result<Output>
+            .output()
+            .expect("failed to execute process")
+    } else {
+        panic!("Only in MacOs")
+    };
+   // output.stdout;
 
-    Ok(())
+   Ok(())
 }

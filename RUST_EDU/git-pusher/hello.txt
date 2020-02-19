@@ -1,0 +1,41 @@
+58fe096 Rust Educate
+f62f27c Rust Educate
+0cfe152 R
+74f0b1e R
+dc0fb40 Rust
+0635102 Rust
+97c1024 T
+d7267f8 ru
+9e62091 Rust
+c9eea1c rust
+b912afd std_misc
+6a5b903 std_library_rules
+86181fb Rust Prac13
+8ba25ed Rust Prac12
+c1f418d Rust Prac11
+a04c876 Rust Prac10
+3e13c7b Rust Prac9
+fa10f31 Rust Prac8
+1532a30 Rust Prac7
+6b8ef64 Rust Prac6
+6d0cda2 Rust Prac5
+bddfa87 Rust Prac4
+6f25006 Rust Prac3
+4194ea0 Rust Prac2
+01efb3e Rust Prac
+e6c778c AUTO
+e632a07 AUTO
+f08f908 AUTO
+1cbdc81 validating_references
+231a34f trait
+24cf4a9 Rust
+492e35a generic, traits
+d7c3626 collection ~ error handling init
+4c96e16 common collection
+a777d29 enum and pattern matching features
+9788257 ownership and struct features
+ff346b0 About ownership & ref 1
+f4a7b4a rust_common_features
+8a4edfb Lap_191227_rustpractice
+1d2826d cargo init
+1cea5f1 Rust_Init

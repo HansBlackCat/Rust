@@ -1,0 +1,6 @@
+Cargo.lock
+Cargo.toml
+hello.txt
+list.txt
+src
+target
