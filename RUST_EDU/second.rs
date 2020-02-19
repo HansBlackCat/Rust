@@ -94,6 +94,7 @@ fn main() {
         let you = Student {
             name: String::from("Kim"),
             email: String::from("test@test"),
+            // &me
             ..me
         };
     }
@@ -107,6 +108,7 @@ fn main() {
 
         let black = Color(0,0,0);
         let origin = Point(0,0,0);
+        println!("{:?}", black.0);
     }
 
     // @Question
