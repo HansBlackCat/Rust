@@ -16,25 +16,26 @@ fn os_checker() {
     }
 }
 
-fn git_matcher(path: &std::path::PathBuf, msg: String) {
+fn git_matcher(path: &std::path::PathBuf, msg: &String) {
     match Command::new("cd").arg(path).output() {
         Ok(_) => {
             match Command::new("git").arg("add").arg("--a").output() {
                 Ok(_) => {
-                    match Command::new("git").arg("commit").arg("-m").arg("\"test\"").output() {
+                    match Command::new("git").arg("commit").arg("-m").arg(msg).output() {
                         Ok(_) => {
                             Command::new("git").arg("push").output().expect("Fail to push");
                             ()
                         },
-                        Err(_) => (),
+                        Err(_) => {println!("Error in `git commit`"); ()},
                     }
                 }
-                Err(_) => ()
+                Err(_) => {println!("Error in `git add`"); ()}
             }
         },
-        Err(_) => (),
+        Err(_) => {println!("Error in `cd`"); ()},
     }
 }
+
 
 fn main() ->io::Result<()> {
     os_checker();
@@ -53,7 +54,7 @@ fn main() ->io::Result<()> {
         let metadata = fs::metadata(&entry_in_string)?;
         // println!("{:?}", metadata.is_dir());
         if metadata.is_file() {
-            git_matcher(&entry_in_string, "te".to_owned());
+            git_matcher(&entry_in_string, &local);
         }
     }
 
