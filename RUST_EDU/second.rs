@@ -431,14 +431,15 @@ fn main() {
 
     // @Question or Homework
     {
+        // Make function `calculating` that calculate enum
         enum SimCal {
             Cal(i32, i32, char)
         }
-        let x = SimCal::Cal(3, 4, '+'); // 7
-        let y = SimCal::Cal(10, 4, '-'); // 6
-        let z = SimCal::Cal(3, 10, '*'); // 30
-        let a = SimCal::Cal(12, 3, '/'); // 4
-        let a = SimCal::Cal(12, 3, '.'); // 4
+        let x = SimCal::Cal(3, 4, '+'); // calculating(x) = 7
+        let y = SimCal::Cal(10, 4, '-'); // calculating(y) = 6
+        let z = SimCal::Cal(3, 10, '*'); // calculating(z) = 30
+        let a = SimCal::Cal(12, 3, '/'); // calculating(a) = 4
+        let a = SimCal::Cal(12, 3, '.'); // calculating(b) = 4
 
         fn calculating(t: SimCal) ->i32 {
             match t {
