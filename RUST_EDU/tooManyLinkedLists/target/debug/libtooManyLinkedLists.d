@@ -1,1 +1,0 @@
-/Users/hansblackcat/Documents/Git/Rust/RUST_EDU/tooManyLinkedLists/target/debug/libtooManyLinkedLists.rlib: /Users/hansblackcat/Documents/Git/Rust/RUST_EDU/tooManyLinkedLists/src/first.rs /Users/hansblackcat/Documents/Git/Rust/RUST_EDU/tooManyLinkedLists/src/lib.rs

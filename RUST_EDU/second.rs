@@ -457,3 +457,6 @@ fn main() {
         println!("{:?}", calculating(a));
     }
 }
+
+// struct ..a
+// reference
