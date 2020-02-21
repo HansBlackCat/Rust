@@ -143,3 +143,33 @@ fn main() {
         }
     }
 }
+
+mod my_mod {
+    fn private_func() {}
+    pub fn func() {}
+    pub fn indirect_access() {private_func()}
+
+    pub mod nested {
+        pub fn func() {}
+        // Only available in current crate
+        pub(self) fn func_in_nested() {}
+        // Only avaliable in given path
+        pub(in crate::my_mod) fn func_in_my_mode() {
+            func_in_nested();
+        }
+        // Only available in parent module
+        pub(super) fn func_in_super() {}
+    }
+    pub fn call_nested_func() {
+        func_in_my_mode();
+        func_in_super();
+    }
+    // Make avaliable only within current crate
+    pub(crate) fn func_in_crate() {}
+
+    mod private_nested {
+        // Both can't called by other crate even it's pub and crated
+        pub fn func_in_pri_nested() {}
+        pub(crate) fn restricted_func() {}
+    }
+}
