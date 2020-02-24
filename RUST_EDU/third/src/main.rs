@@ -41,6 +41,7 @@ pub fn im_in_library() {
     // Absolute path
     // if you're in ~/Documents/Git
     // cd User/myname/Documents/Git/Rust
+    // C:\\User\Hans\..
     crate::learning_programming_language::self_study::buying_books();
     // Relative path
     // if you're in ~/Documents/Git
@@ -49,6 +50,7 @@ pub fn im_in_library() {
 }
 // ! stdErr: module `self_study` is private
 // @ make module public
+
 
 mod break_time {
     fn listening_to_music() {}
@@ -91,9 +93,13 @@ pub fn music_start() {
         nedasship: "nedasship".to_owned(),
     };
     */
+    
     // ! Warning, cause nedasship is private
 
     let mut me = break_time::Music::youre_music(String::from("Bad Apple"));
+    /*
+    rock, city, Bad Apple
+    */
     me.rockstyle = String::from("Queen");
     println!("{:?}", me);
 }
@@ -112,9 +118,12 @@ fn main() {
     }
     {
         use crate::learning_programming_language::self_study;
+
+        self_study::buying_books();
         self_study::buying_books();
     }
     {
+        // * : ALL
         use crate::learning_programming_language::self_study::*;
         buying_books();
     }
@@ -147,7 +156,10 @@ fn main() {
 mod my_mod {
     fn private_func() {}
     pub fn func() {}
-    pub fn indirect_access() {private_func()}
+    pub fn indirect_access() {
+        private_func();
+        func();
+    }
 
     pub mod nested {
         pub fn func() {}
@@ -161,8 +173,8 @@ mod my_mod {
         pub(super) fn func_in_super() {}
     }
     pub fn call_nested_func() {
-        func_in_my_mode();
-        func_in_super();
+        //func_in_my_mode();
+        //func_in_super();
     }
     // Make avaliable only within current crate
     pub(crate) fn func_in_crate() {}
