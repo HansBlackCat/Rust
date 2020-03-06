@@ -1,6 +1,5 @@
 #![allow(unused_variables, dead_code)]
 
-use std::mem;
 
 fn main() {
     // RAII
@@ -13,7 +12,8 @@ fn main() {
     {
         // heap allocate
         // similar with malloc in C
-        let a = Box::new(3u32);
+        let a = Box::new(3u32); // malloc int space -> 3
+        let b = Box::new(3);
         println!("{}", a);
     }
 
@@ -28,9 +28,15 @@ fn main() {
         // borrow of moved value
     }
 
+    // String::from("as");
+    // String::new();
+    // "asd".to_owned();
+    // String -> &str, length, capacity
+
     // Vector
     {
         println!("\n<< VECTOR >>\n");
+
         let mut v1: Vec<i32> = Vec::new();
         //             ^~~~ Need to write 'what type' you want to push in vector
         println!("{:?}", &v1);
@@ -38,16 +44,21 @@ fn main() {
         v1.push(1);
         v1.push(2);
         println!("{:?}", &v1);
+        // [1,3,5,7,9]
     
         // More simple way: Using MACRO
         let v2: Vec<i32> = vec![1,2,3,4,5];
+
         println!("{:?}", &v2);
         
         // print third element
         println!("{:?}", &v2[2]);
-        match &v2.get(2) {
+        // v2[999]; ? -> SegFault
+        // enum -> Error Some | None
+
+        match &v2.get(999) {
             Some(third) => println!("The third element is {}", third),
-            None => println!("There is no third element."),
+            None        => println!("There is no element."),
         }
         // TODO!!
         // What is difference between v2[2] and v2.get(2) ??
@@ -66,6 +77,14 @@ fn main() {
     // String =/= &str
     // String is kind of `struct` contains &str, length, capacity
 
+    // "hook" -> length: 4 , Capacity: 8
+    // hook + tt ++ sa = "hookttsa" -> length: 8
+    // - - - - 끝
+    // - - - - -
+    // - - - - 0 0 0 0
+    // - - - - - - - -
+
+
     // Method 1
     let mut s1 = String::new();
     let s1 = "Only for you~".to_owned();
@@ -75,6 +94,7 @@ fn main() {
     let mut s2 = String::from("반짝이는 그대에게로~");
     println!("{}", s2);
 
+    // String vs &str
     // String support UTF-8
     let hello_fromJap = String::from("こんにちは");
     let hello_fromRus = String::from("Здравствуйте");
@@ -84,6 +104,8 @@ fn main() {
     // Concat
     let mut s3 = s1 + " " + &s2;
     //                      ^~~~ don't forget `&`
+
+    // s3 = s1 + &s2 + &s4 + &s7
     s3.push_str(" 살며시 다가가 그대와~");
     println!("{}", s3);
 
@@ -100,7 +122,7 @@ fn main() {
         // Many different name
         // Hash, Map, Object, HashTable, Dictionary, Associative Array
 
-        // Fast at finding 
+        // Fast at finding
         // Slow for Saving
         use std::collections::HashMap;
 
@@ -111,14 +133,15 @@ fn main() {
         scores.insert(String::from("Red"), 15);
         println!("{:?}", scores);
         // mismatched types
-        //scores.insert(12, true);
+        // scores.insert(12, true);
 
         // Mixing
         let teams = vec![String::from("Blue"), String::from("Red")];
         let scores = vec![10, 15];
 
         let scores: HashMap<_,_> = teams.iter().zip(scores.iter()).collect();
-        println!("{:?}", scores);
+        println!(">>> {:?}", scores);
+
         let scores2 = teams.iter().zip(scores.iter());
         println!("{:?}", scores2);
         // Zip { a: Iter(["Blue", "Red"]), b: [("Blue", 10), ("Red", 15)], index: 0, len: 0 }
@@ -127,7 +150,7 @@ fn main() {
 
         // if ommiting Haspmap<_,_>? -> ERROR `consider giving `scores` a type`
 
-        // zip -> matching 
+        // zip -> matching
         // [1,2,3] zip [4,5,6] == [(1,4),(2,5),(4,6)]
 
         // Finding with key
@@ -137,6 +160,7 @@ fn main() {
         // Guessing
         println!("{:?}", score_of);
         // == Some(10)
+        // None
         // WHY?
         
         // Only Reference Accepted!
@@ -178,18 +202,7 @@ fn main() {
         println!("{:?}", a1.split_whitespace());
         // SplitWhitespace { inner: Filter { iter: Split(SplitInternal { start: 0, end: 8, matcher: CharPredicateSearcher { haystack: "ab bs ds", char_indices: CharIndices { front_offset: 0, iter: Chars(['a', 'b', ' ', 'b', 's', ' ', 'd', 's']) } }, allow_trailing_empty: true, finished: false }) } }
 
-
-
-
-
-
-
-
-
-
-
         // {"my": 2, "hello": 3, "and": 2, "school,": 1, "world,": 1, "no": 1, "Zzang": 1}
-
     }
 
     // Unrecoverable Error Handling
@@ -216,7 +229,6 @@ fn main() {
         // Boundary check problem -> Make overhead
         // Bounds-check elimination
         
-
         fn give_gift(gift: String) {
             if gift == "moon".to_owned() { panic!("Fuck you") }
             println!("Oh. thanks you!");
@@ -225,6 +237,8 @@ fn main() {
         // give_gift(String::from("moon"));
         // thread 'main' paniced at 'Fuck you'
 
+        // panic! ?
+        // `!`
         // panic! has type `!` which can be anything
         fn div_number(divd: i32, divby: i32) ->i32 {
             if divby == 0 { panic!("Divide by zero") }
