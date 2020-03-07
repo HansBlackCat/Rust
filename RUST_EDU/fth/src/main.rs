@@ -1,5 +1,7 @@
-#![allow(unused_variables, dead_code)]
+#![allow(unused_variables, dead_code, unused_mut, non_snake_case)]
 
+use std::fs::File;
+use std::io::*;
 
 fn main() {
     // RAII
@@ -45,12 +47,12 @@ fn main() {
         v1.push(2);
         println!("{:?}", &v1);
         // [1,3,5,7,9]
-    
+
         // More simple way: Using MACRO
         let v2: Vec<i32> = vec![1,2,3,4,5];
 
         println!("{:?}", &v2);
-        
+
         // print third element
         println!("{:?}", &v2[2]);
         // v2[999]; ? -> SegFault
@@ -62,7 +64,7 @@ fn main() {
         }
         // TODO!!
         // What is difference between v2[2] and v2.get(2) ??
-    
+
         // Print all
         for i in &v2 {
             print!("{} ", i);
@@ -162,7 +164,7 @@ fn main() {
         // == Some(10)
         // None
         // WHY?
-        
+
         // Only Reference Accepted!
         //let score_of = scores.get(finding_team_name);
         //println!("{:?}", score_of); 
@@ -228,7 +230,7 @@ fn main() {
         // But why? we can't find this error in compile time?
         // Boundary check problem -> Make overhead
         // Bounds-check elimination
-        
+
         fn give_gift(gift: String) {
             if gift == "moon".to_owned() { panic!("Fuck you") }
             println!("Oh. thanks you!");
@@ -267,5 +269,26 @@ fn main() {
             else { Some(wrappee) }
         }
         println!("{}", wrapper(String::from("hello")).unwrap());
+    }
+
+    // Error 2
+    {
+        // first `use`
+        // use std::fs::File;
+        // use std::io::*;
+        println!("\n\n-----------------------------------------------------");
+        println!("<< Error 2 >>");
+
+        let f = File::open("khello.txt");
+        /*
+        let f = match f {
+            Ok(file) => file,
+            Err(ref error) => match error.kind() {
+                ErrorKind::NotFound => match File::create("hello.txt") {
+                    
+                }
+            }
+        }
+        */
     }
 }
