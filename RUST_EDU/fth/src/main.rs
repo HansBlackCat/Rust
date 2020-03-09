@@ -287,6 +287,10 @@ fn main() {
     // Error 2
     {
         // first `use`
+        // use std::fs::*;
+        // fs -> FileSystem
+        // use std::io;
+        // use std::io::{ErrorKind, Read};
         println!(
             "\n\n------------------------------------------------------------------------------"
         );
@@ -296,6 +300,8 @@ fn main() {
         // NO Error message
 
         // Manage Error with type matching
+
+        // Some(T) | None
 
         // pub enum Result<T, E> {
         //     Ok(T),
@@ -331,6 +337,7 @@ fn main() {
             f.read_to_string(&mut s);
             Ok(s)
         }
+        // Ok(/*hello.txt*/)
 
         fn reader2() -> Result<String, io::Error> {
             let mut s = String::new();
@@ -342,7 +349,7 @@ fn main() {
     // Standard Development style
     {
         use std::error::Error;
-        fn semi_main() -> Result<(), Box<dyn Error>> {
+        fn main() ->Result<(), Box<dyn Error>> {
             let f = File::open("hello.txt")?;
             Ok(())
         }
@@ -361,6 +368,7 @@ fn main() {
         */
         // Error: recursive type has infinite size
 
+        // (data, pointer(Box)) -> (data, pointer(Box)) -> (data, pointer) -> ...
         #[derive(Debug)]
         enum List {
             Nil,
@@ -384,7 +392,6 @@ fn main() {
 
 
 
-
         impl List {
             fn singleton(num: i32) ->List {
                 List::Cons(num, Box::new(List::Nil))
@@ -396,7 +403,7 @@ fn main() {
         }
         let test = List::singleton(10);
         println!("{:?}", test);
-        println!("{:?}", test.push(20));
+        println!("{:?}", test.push(20).push(3).push(6).push(100));
 
         // It's not perfect linked list
         // Because of Ownership
@@ -408,6 +415,7 @@ fn main() {
         println!("\n<<Generic 1>>\n");
 
         // What is generic?
+
         let vec1: Vec<i32> = vec![1, 2, 3];
         let vec2: Vec<char> = vec!['a', 'b', 'c'];
 
@@ -437,7 +445,7 @@ fn main() {
 
     // Generic 1 -- Generic in function
     {
-        /* TRY
+        /*
         fn largest<T>(list: &[T]) ->T {
             let mut largest = list[0];
 
@@ -449,6 +457,7 @@ fn main() {
             largest
         }
         */
+        
         // Error: binary operation `>` cannot be applied to type `T`
         // Arbitrary type T can't Ordering
         // std::cmp::PartialOrd
@@ -466,6 +475,7 @@ fn main() {
 
         let point_int = Point { x: 5, y: 10 };
         let point_float = Point { x: 1.5, y: 5. };
+        let point_test = Point { x: "St", y: "sd" };
 
         // let point_mix = Point { x: 3, y: 3.5 };
         // expected integer, found floating-point number
@@ -546,6 +556,8 @@ fn main() {
         let p3 = p1.mixup(p2);
         println!("{:?}", p3);
 
-
+        // STL -> C++?
+        // Standard Template Library
+        
     }
 }
